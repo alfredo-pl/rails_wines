@@ -15,7 +15,13 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
+  <div class="field">
+    <%= form.label :Strains %>
+    <%= form.collection_check_boxes(:strain_ids, Strain.all, :id, :name)do |s| %>
+          <%= s.label class: 'label-checkbox' do %>
+          <%= s.check_box + s.text %>
+          <% end %>
+          <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>
