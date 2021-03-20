@@ -1,5 +1,5 @@
 class StrainsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authorize_admin!
   before_action :set_strain, only: %i[ show edit update destroy ]
 
   # GET /strains or /strains.json
