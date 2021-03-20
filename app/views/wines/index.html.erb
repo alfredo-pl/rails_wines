@@ -9,7 +9,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+<%if current_user.role_id == 1%>
   <tbody>
     <% @wines.each do |wine| %>
       <tr>
@@ -25,3 +25,16 @@
 <br>
 
 <%= link_to 'New Wine', new_wine_path %>
+<%else%>
+ <tbody>
+    <% @wines.each do |wine| %>
+      <tr>
+        <td><%= wine.name %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+  <% end %>
