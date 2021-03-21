@@ -16,8 +16,12 @@
     <%= form.text_field :name %>
   </div>
   <div class="field">
+    <%= form.label :score %>
+    <%= form.number_field  :score , in: 0..100%>
+  </div>
+  <div class="field">
     <%= form.label :Strains %>
-    <%= form.collection_check_boxes(:strain_ids, Strain.all, :id, :name)do |s| %>
+    <%= form.collection_check_boxes(:strain_ids, Strain.all.order(name: :asc), :id, :name)do |s| %>
           <%= s.label class: 'label-checkbox' do %>
           <%= s.check_box + s.text %>
           <% end %>
