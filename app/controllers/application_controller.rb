@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     def authorize_admin!
-        unless current_user.role_id == 1
+        unless current_user.role_id == 1 || current_user.role_id == 3
             flash[:alert]= "You must be an Admin to access this section"
             redirect_to root_path
             
