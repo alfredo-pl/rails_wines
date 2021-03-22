@@ -1,0 +1,9 @@
+<div class="nested-fields">
+<div class="fields">
+    <%= f.select :strain_id, Strain.all.map{|s|[s.name, s.id]}%>
+    <%= f.label :proportion%>
+    <%= f.number_field :proportion%>
+    
+    <%= link_to_remove_association "Remove Strain", f%>
+</div>
+</div>
