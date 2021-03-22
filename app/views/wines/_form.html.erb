@@ -21,11 +21,13 @@
   </div>
   <div class="field">
     <%= form.label :Strains %>
-    <%= form.collection_check_boxes(:strain_ids, Strain.all.order(name: :asc), :id, :name)do |s| %>
-          <%= s.label class: 'label-checkbox' do %>
-          <%= s.check_box + s.text %>
-          <% end %>
-          <% end %>
+      <%= form.fields_for :assemblies do |s| %>
+    <%= render '_strain_fields', f: s %>
+    <% end %>
+    <div class="links form-inline">
+      <%= link_to_add_association 'add strain', form, :assemblies %>
+    </div>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
