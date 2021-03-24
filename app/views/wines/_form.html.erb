@@ -22,7 +22,7 @@
   <div class="field">
     <%= form.label :Strains %>
       <%= form.fields_for :assemblies do |s| %>
-    <%= render '_strain_fields', f: s %>
+    <%= render 'assembly_fields', f: s %>
     <% end %>
     <div class="links form-inline">
       <%= link_to_add_association 'add strain', form, :assemblies %>
