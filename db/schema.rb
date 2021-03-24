@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_150654) do
+ActiveRecord::Schema.define(version: 2021_03_24_123549) do
 
   create_table "assemblies", force: :cascade do |t|
     t.integer "wine_id", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_150654) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "score", limit: 100, default: 0
+    t.integer "age"
   end
 
   add_foreign_key "assemblies", "strains"
