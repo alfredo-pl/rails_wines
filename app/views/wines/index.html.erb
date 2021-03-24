@@ -6,16 +6,18 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>score</th>
+      <th>Score</th>
+      <th>Strains</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-<%if current_user.role_id == 1%>
+<%if current_user.role_id == 1 || current_user.role_id == 3%>
   <tbody>
     <% @wines.each do |wine| %>
       <tr>
         <td><%= wine.name %></td>
         <td><%= wine.score %></td>
+        <td><%= wine.build_strains%></td>
         <td><%= link_to 'Show', wine %></td>
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
         <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,8 +27,10 @@
 </table>
 
 <br>
+<% if current_user.role_id == 1 %>
+  <%= link_to 'New Wine', new_wine_path %>
+<% end %>
 
-<%= link_to 'New Wine', new_wine_path %>
 <%else%>
  <tbody>
     <% @wines.each do |wine| %>
