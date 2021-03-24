@@ -16,6 +16,10 @@
     <%= form.text_field :name %>
   </div>
   <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field  :age%>
+  </div>
+  <div class="field">
     <%= form.label :score %>
     <%= form.number_field  :score , in: 0..100%>
   </div>
