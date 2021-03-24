@@ -3,7 +3,7 @@ class WinesController < ApplicationController
   before_action :authenticate_user!
   # GET /wines or /wines.json
   def index
-    @wines = Wine.all
+    @wines = Wine.all.order(age: :asc)
   end
 
   # GET /wines/1 or /wines/1.json
@@ -64,7 +64,7 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name, :score, assemblies_attributes: [:id, :strain_id,:proportion ,:_destroy])
+      params.require(:wine).permit(:name, :age,:score, assemblies_attributes: [:id, :strain_id,:proportion ,:_destroy])
       
     end
 end
