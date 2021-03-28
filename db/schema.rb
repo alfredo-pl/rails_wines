@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2021_03_24_123549) do
   enable_extension "plpgsql"
 
   create_table "assemblies", force: :cascade do |t|
-    t.integer "wine_id", null: false
-    t.integer "strain_id", null: false
+    t.bigint "wine_id", null: false
+    t.bigint "strain_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "proportion"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_123549) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "role_id", null: false
+    t.bigint "role_id", null: false
     t.string "name"
     t.integer "age"
     t.string "nationality"
