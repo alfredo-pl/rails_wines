@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_03_24_123549) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "assemblies", force: :cascade do |t|
     t.integer "wine_id", null: false
     t.integer "strain_id", null: false
@@ -56,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_123549) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "score", limit: 100, default: 0
+    t.decimal "score", default: "0.0"
     t.integer "age"
   end
 
